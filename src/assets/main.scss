@@ -1,0 +1,24 @@
+@import './base.css';
+@import './reset.css';
+
+body {
+    background-color: #dedede;
+}
+
+#app {
+    min-height: calc(100vh - 2rem);
+    border: 1px solid #000;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column;
+}
+
+a {
+    text-decoration: none;
+    color: #2a7045;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

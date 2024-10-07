@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Apercu';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/font/apercuMono.ttf') format('woff2');
+}
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -40,8 +47,5 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-}
-
-body {
-  min-height: 100vh;
+  font-family: 'Apercu', monospace;
 }

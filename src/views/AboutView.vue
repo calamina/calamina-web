@@ -1,5 +1,5 @@
 <template>
-    This is an about page
+    about page #wip
 </template>
 
 <style>
