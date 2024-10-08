@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  projects page #wip
+  <div>
+    projects page #wip
+  </div>
 </template>

@@ -22,4 +22,15 @@ const router = createRouter({
   ]
 })
 
+// dynamic transitions
+// check how to use route name to swap GSAP transitions
+// pass it to route store !!! and update transitions accordingly
+// check against vueuse router
+// router.afterEach((to, from) => {
+//   const toDepth = to.path.split('/').length
+//   const fromDepth = from.path.split('/').length
+//   to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+//   console.debug('to', toDepth, 'from', fromDepth)
+// })
+
 export default router

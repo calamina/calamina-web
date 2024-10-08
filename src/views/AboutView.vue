@@ -1,5 +1,7 @@
 <template>
-    about page #wip
+    <div>
+        about page #wip
+    </div>
 </template>
 
 <style>

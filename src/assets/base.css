@@ -2,7 +2,8 @@
   font-family: 'Apercu';
   font-style: normal;
   font-weight: 400;
-  src: url('../assets/font/apercuMono.ttf') format('woff2');
+  /* src: url('../assets/font/apercuMono.ttf') format('woff2'); */
+  src: url('../assets/font/apercuMonoMedium.ttf') format('woff2');
 }
 
 :root {
@@ -47,5 +48,6 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+  font-size: 17px;
   font-family: 'Apercu', monospace;
 }
