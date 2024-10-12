@@ -35,9 +35,9 @@ const leave = (el: any, done: any) => {
 <template>
   <header>
     <nav>
-      <RouterLink to="/">/home</RouterLink>
-      <RouterLink to="/about">/about</RouterLink>
-      <RouterLink to="/projects">/projects</RouterLink>
+      <RouterLink to="/">home</RouterLink>
+      <RouterLink to="/about">about</RouterLink>
+      <RouterLink to="/projects">projects</RouterLink>
     </nav>
   </header>
 
@@ -60,7 +60,7 @@ const leave = (el: any, done: any) => {
 nav {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid #000;
+  // border-bottom: 1px solid #000;
   padding: 1rem;
 }
 
@@ -77,7 +77,11 @@ main {
 footer {
   display: flex;
   gap: .5rem;
-  border-top: 1px solid #000;
+  // border-top: 1px solid #000;
   padding: 1rem;
+}
+
+.router-link-active {
+  text-decoration: underline;
 }
 </style>
