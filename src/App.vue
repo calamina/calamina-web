@@ -77,7 +77,6 @@ main {
 footer {
   display: flex;
   gap: .5rem;
-  // border-top: 1px solid #000;
   padding: 1rem;
 }
 
