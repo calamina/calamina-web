@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { gsap, toArray } from "gsap";
+import router from '@/router';
 
 const source = [
   'constellation', 'jade', 'netstart', 'pixilate', 'planet', 'loco', 'loco2', 'cafe1', 'calamina1', 'calamina2', 'animation', 'chaser', 'flora', 'fatcat', 'frames', 'homepage4', 'consola', 'lutin', 'perpetua', 'pkd', 'sorrow', 'biosphere2', 'bath', 'words', 'colors'
 ]
 
-const imgs: MediaImage[] = []
+const imgs: {name: string; image: HTMLImageElement}[] = [];
 
 let loading = ref(true);
 
 source.forEach(img => {
   let pic = new Image()
   pic.src = 'img/web/' + img + '.png'
-  imgs.push(pic)
+  imgs?.push({name: img, image: pic})
 })
 
 Promise
@@ -31,16 +32,21 @@ watch(loading, () => {
     })
   }, 600)
 })
+
+const openProject = (src: string) => {
+  router.push({ name: 'media', params: { project: src } })
+}
 </script>
 
 <template>
   <div>
     <transition name="imgLoad" mode="out-in">
-      <div v-if="loading">loading :)</div>
-      <div v-else class="content">
+      <!-- <div v-if="loading">loading :)</div> -->
+      <div v-if="!loading" class="content">
+      <!-- <div v-else class="content"> -->
         projects page #wip
         <div class="img-grid">
-          <img class="img" v-for="img in imgs" :src="img.src" alt=":(" />
+          <img class="img" v-for="img in imgs" :src="img.image.src" alt=":(" @click="openProject(img.name)" />
         </div>
       </div>
     </transition>

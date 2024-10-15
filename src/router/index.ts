@@ -18,7 +18,21 @@ const router = createRouter({
       path: '/projects',
       name: 'projects',
       component: () => import('../views/ProjectsView.vue')
-    }
+    },
+    {
+      path: '/projects/:project',
+      name: 'media',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import('../views/ProjectView.vue')
+    },
+    // TODO :: 404
+    // {
+    //   path: '/:pathMatch(.*)*',
+    //   name: 'Backrooms',
+    //   component: () => import('../views/BackroomsView.vue')
+    // },
   ]
 })
 

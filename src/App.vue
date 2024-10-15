@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { gsap } from "gsap";
+import { ref, watch } from 'vue';
 
 // TODO:: add utility to manage route transitions depending on route hash (useRouteTransition())
 const beforeEnter = (el: any) => {
@@ -30,6 +31,17 @@ const leave = (el: any, done: any) => {
     onComplete: done,
   });
 };
+
+const route = useRoute()
+let isProjectRoute = ref(false)
+
+watch(
+  () => route.params.project,
+  (newId, oldId) => {
+    isProjectRoute.value = !!newId
+    // react to route changes...
+  }
+)
 </script>
 
 <template>
@@ -38,6 +50,7 @@ const leave = (el: any, done: any) => {
       <RouterLink to="/">home</RouterLink>
       <RouterLink to="/about">about</RouterLink>
       <RouterLink to="/projects">projects</RouterLink>
+      <p class="sublink" v-if="isProjectRoute">> {{ $route.params.project }}</p>
     </nav>
   </header>
 
@@ -82,5 +95,9 @@ footer {
 
 .router-link-active {
   text-decoration: underline;
+}
+
+.sublink {
+  color: #00000055;
 }
 </style>
