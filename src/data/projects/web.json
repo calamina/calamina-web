@@ -2,109 +2,289 @@
     {
         "id": 1,
         "name": "atlast",
-        "link": "atlast.vercel.com",
-        "img": "atlast.png"
+        "link": "https://atlast.calamina.cafe",
+        "img": "atlast.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 2,
         "name": "constellation",
         "link": "/constellation",
-        "img": "constellation.png"
+        "img": "constellation.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 3,
         "name": "jade",
         "link": "/jade",
-        "img": "jade.png"
+        "img": "jade.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 4,
         "name": "netstart",
         "link": "/netstart",
-        "img": "netstart.png"
+        "img": "netstart.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 5,
         "name": "pixilate",
         "link": "/pixilate",
-        "img": "pixilate.png"
+        "img": "pixilate.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 6,
         "name": "planet",
         "link": "/planet",
-        "img": "planet.png"
+        "img": "planet.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 7,
         "name": "calamina1",
         "link": "/calamina1",
-        "img": "calamina1.png"
+        "img": "calamina1.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 8,
         "name": "calamina2",
         "link": "/calamina2",
-        "img": "calamina2.png"
+        "img": "calamina2.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 9,
         "name": "animation",
         "link": "/animation",
-        "img": "animation.png"
+        "img": "animation.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 10,
         "name": "chaser",
         "link": "/chaser",
-        "img": "chaser.png"
+        "img": "chaser.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 11,
         "name": "flora",
         "link": "/flora",
-        "img": "flora.png"
+        "img": "flora.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 12,
         "name": "fatcat",
         "link": "/fatcat",
-        "img": "fatcat.png"
+        "img": "fatcat.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 13,
         "name": "perpetua",
         "link": "/perpetua",
-        "img": "perpetua.png"
+        "img": "perpetua.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 14,
         "name": "sorrow",
         "link": "/sorrow",
-        "img": "sorrow.png"
+        "img": "sorrow.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 15,
         "name": "biosphere2",
         "link": "/biosphere2",
-        "img": "biosphere2.png"
+        "img": "biosphere2.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 16,
         "name": "bath",
         "link": "/bath",
-        "img": "bath.png"
+        "img": "bath.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 17,
         "name": "words",
         "link": "/words",
-        "img": "words.png"
+        "img": "words.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     },
     {
         "id": 18,
         "name": "colors",
         "link": "/colors",
-        "img": "colors.png"
+        "img": "colors.png",
+        "imgs": [
+            "img2.png",
+            "img3.png"
+        ],
+        "description": "hhehehehhheheheheh",
+        "tech": [
+            "vue",
+            "strapi"
+        ],
+        "features": []
     }
 ]
