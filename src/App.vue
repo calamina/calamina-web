@@ -49,8 +49,15 @@ watch(
     <nav>
       <RouterLink to="/">home</RouterLink>
       <RouterLink to="/about">about</RouterLink>
-      <RouterLink to="/projects">projects</RouterLink>
-      <p class="sublink" v-if="isProjectRoute">> {{ $route.params.project }}</p>
+      <div class="subnav">
+        <RouterLink to="/projects">projects</RouterLink>
+        <transition name="sublink">
+          <div class="subroute" v-if="isProjectRoute">
+            <p>~</p>
+          <p class="sublink">{{ $route.params.project }}</p>
+        </div>
+      </transition>
+      </div>
     </nav>
   </header>
 
@@ -72,9 +79,13 @@ watch(
 <style scoped lang="scss">
 nav {
   display: flex;
-  gap: 1rem;
-  // border-bottom: 1px solid #000;
+  gap: 2.5rem;
   padding: 1rem;
+}
+
+.subnav {
+  display: flex;
+  gap: 0.5rem;
 }
 
 main {
@@ -97,7 +108,24 @@ footer {
   text-decoration: underline;
 }
 
+.subroute {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .sublink {
   color: #00000055;
+  text-decoration: underline;
+}
+
+.sublink-enter-active,
+.sublink-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sublink-enter-from,
+.sublink-leave-to {
+  opacity: 0;
+  transform: translateX(-0.25rem);
 }
 </style>

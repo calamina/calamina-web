@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { gsap, toArray } from "gsap";
+import { onMounted, ref, watch, type Ref } from 'vue';
+import { gsap } from "gsap";
 import router from '@/router';
+import web from '@/data/projects/web.json';
+import type { ProjectModel } from '@/models/project';
 
-const source = [
-  'constellation', 'jade', 'netstart', 'pixilate', 'planet', 'loco', 'loco2', 'cafe1', 'calamina1', 'calamina2', 'animation', 'chaser', 'flora', 'fatcat', 'frames', 'homepage4', 'consola', 'lutin', 'perpetua', 'pkd', 'sorrow', 'biosphere2', 'bath', 'words', 'colors'
-]
-
-const imgs: {name: string; image: HTMLImageElement}[] = [];
+const projects: Ref<ProjectModel[]> = ref(web);
+const imgs: { name: string; image: HTMLImageElement }[] = [];
 
 let loading = ref(true);
 
-source.forEach(img => {
+projects.value.forEach((project: ProjectModel) => {
   let pic = new Image()
-  pic.src = 'img/web/' + img + '.png'
-  imgs?.push({name: img, image: pic})
+  pic.src = 'img/web/' + project.img
+  imgs?.push({ name: project.name, image: pic })
 })
 
 Promise
@@ -26,27 +25,29 @@ Promise
 watch(loading, () => {
   setTimeout(() => {
     gsap.to('.img', {
-      duration: .5,
+      duration: .2,
       opacity: 1,
       stagger: 0.05
     })
   }, 600)
 })
-
-const openProject = (src: string) => {
-  router.push({ name: 'media', params: { project: src } })
-}
 </script>
 
 <template>
   <div>
     <transition name="imgLoad" mode="out-in">
-      <!-- <div v-if="loading">loading :)</div> -->
-      <div v-if="!loading" class="content">
-      <!-- <div v-else class="content"> -->
-        projects page #wip
+      <div v-if="loading" class="loading">
+        <p class="loader">LOADING<span>❍</span></p>
+        <p class="loader">LOADING<span>⊛</span></p>
+        <p class="loader">LOADING<span>↻</span></p>
+        <!-- <p class="loader">LOADING<span>⥁</span></p> -->
+      </div>
+      <div v-else class="content">
+        projects page #
         <div class="img-grid">
-          <img class="img" v-for="img in imgs" :src="img.image.src" alt=":(" @click="openProject(img.name)" />
+          <RouterLink v-for="img in imgs" href="" :to="{ name:'project', params: { project: img.name } }">
+            <img class="img" :src="img.image.src" alt=":(" />
+          </RouterLink>
         </div>
       </div>
     </transition>
@@ -60,11 +61,40 @@ const openProject = (src: string) => {
   gap: 0.5rem;
 }
 
-img {
+a {
   display: block;
   aspect-ratio: 1;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
   filter: grayscale(1);
   opacity: 0;
+}
+
+span {
+  display: block;
+  width: fit-content;
+  animation: rotate 4s linear infinite;
+  font-size: 2rem;
+}
+
+.loader{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
 }
 
 .imgLoad-enter-active,

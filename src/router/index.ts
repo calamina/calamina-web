@@ -21,10 +21,7 @@ const router = createRouter({
     },
     {
       path: '/projects/:project',
-      name: 'media',
-      meta: {
-        requiresAuth: true
-      },
+      name: 'project',
       component: () => import('../views/ProjectView.vue')
     },
     // TODO :: 404
