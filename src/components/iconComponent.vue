@@ -1,5 +1,13 @@
+<script setup lang="ts">
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  small: Boolean,
+})
+</script>
+
 <template>
-<div>
+<div :class="{smallIcon: small}">
     <slot />
 </div>
 </template>
@@ -8,5 +16,10 @@
 div {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+.smallIcon {
+    width: 0.9rem;
+    height: 0.9rem;
 }
 </style>

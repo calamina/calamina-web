@@ -43,7 +43,7 @@ watch(loading, () => {
         <!-- <p class="loader">LOADING<span>⥁</span></p> -->
       </div>
       <div v-else class="content">
-        projects page #
+        <!-- projects page # -->
         <div class="img-grid">
           <RouterLink v-for="img in imgs" href="" :to="{ name:'project', params: { project: img.name } }">
             <img class="img" :src="img.image.src" alt=":(" />
@@ -57,6 +57,7 @@ watch(loading, () => {
 <style lang="scss" scoped>
 .img-grid {
   display: grid;
+  max-width: 50rem;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.5rem;
 }
@@ -70,7 +71,7 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  filter: grayscale(1);
+  // filter: grayscale(1);
   opacity: 0;
 }
 

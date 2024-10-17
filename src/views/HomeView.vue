@@ -11,6 +11,9 @@ import IconYoutube from '@/components/icons/iconYoutube.vue';
 <template>
   <div class="content">
     <section>
+      <h1>> calamina.cafe</h1>
+    </section>
+    <section>
       <p>Hello and welcome :) </p>
       <p>Personal space of Grégoire Belliere</p>
       <p>Work in progress !</p>

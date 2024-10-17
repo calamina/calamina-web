@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { gsap } from "gsap";
-import { ref, watch } from 'vue';
+import { ref, watch, type Ref } from 'vue';
 
 // TODO:: add utility to manage route transitions depending on route hash (useRouteTransition())
 const beforeEnter = (el: any) => {
@@ -33,12 +33,14 @@ const leave = (el: any, done: any) => {
 };
 
 const route = useRoute()
-let isProjectRoute = ref(false)
+const isProjectRoute = ref(false)
+const project: Ref<string> = ref(route.params.project as string)
 
 watch(
   () => route.params.project,
   (newId, oldId) => {
     isProjectRoute.value = !!newId
+    project.value = newId as string;
     // react to route changes...
   }
 )
@@ -51,12 +53,14 @@ watch(
       <RouterLink to="/about">about</RouterLink>
       <div class="subnav">
         <RouterLink to="/projects">projects</RouterLink>
-        <transition name="sublink">
-          <div class="subroute" v-if="isProjectRoute">
+        <transition name="sublink" mode="out-in">
+          <div class="subroute" v-if="isProjectRoute" :key="project">
             <p>~</p>
-          <p class="sublink">{{ $route.params.project }}</p>
-        </div>
-      </transition>
+            <!-- <p>:</p> -->
+            <!-- <p>/</p> -->
+            <p class="sublink">{{ $route.params.project }}</p>
+          </div>
+        </transition>
       </div>
     </nav>
   </header>
@@ -64,7 +68,7 @@ watch(
   <main>
     <router-view v-slot="{ Component, route }">
       <transition mode="out-in" @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave">
-        <component :is="Component" :key="route.path"/>
+        <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
   </main>
@@ -114,8 +118,9 @@ footer {
 }
 
 .sublink {
-  color: #00000055;
-  text-decoration: underline;
+  background-color: #c5c5c5;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .sublink-enter-active,
