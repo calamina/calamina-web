@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProjectModel }from '@/models/project';
+import type { ProjectModel } from '@/models/project';
 import { ref, watchEffect, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import web from '@/data/projects/web.json'
@@ -9,10 +9,11 @@ import IconNext from '@/components/icons/iconNext.vue';
 import IconPrevious from '@/components/icons/iconPrevious.vue';
 import { useMagicKeys } from '@vueuse/core'
 import router from '@/router';
+import ProjectData from '@/components/project/projectData.vue';
 
 const route = useRoute()
 const projects: Ref<ProjectModel[]> = ref(web);
-const {ArrowRight, ArrowLeft} = useMagicKeys()
+const { ArrowRight, ArrowLeft } = useMagicKeys()
 
 const project: Ref<ProjectModel> = ref(projects.value.find(project => project.name === route.params.project) ?? projects.value[0])
 
@@ -22,12 +23,12 @@ const next: ProjectModel | null = projects.value.find(res => res.id === (project
 watchEffect(() => {
   if (ArrowLeft.value)
     previous ?
-    router.push({ params: { project: previous?.name } }) :
-    router.push({ name:"projects" })
-  else if(ArrowRight.value) {
+      router.push({ params: { project: previous?.name } }) :
+      router.push({ name: "projects" })
+  else if (ArrowRight.value) {
     next ?
-    router.push({ params: { project: next?.name } }) :
-    router.push({ name:"projects" })
+      router.push({ params: { project: next?.name } }) :
+      router.push({ name: "projects" })
   }
 })
 </script>
@@ -36,9 +37,11 @@ watchEffect(() => {
   <div class="content">
     <div class="project" v-if="project">
       <div class="info">
-        <p class="count">{{ project.id }}/{{ projects.length }}</p>
         <div class="title">
-          <h1>{{ project.name }}</h1>
+          <h1>
+            <span class="count">{{ project.id }}/{{ projects.length }}</span>
+            {{ project.name }}
+          </h1>
           <a class="project-link" :href="project.link" target="_blank">
             visit
             <IconComponent :small="true">
@@ -47,28 +50,26 @@ watchEffect(() => {
           </a>
         </div>
         <img class="cover" :src="'/img/web/' + project.img" alt="project picture">
-        <p class="description">{{ project.description }}</p>
-        <table>
-          <tr v-for="tech in project.tech">
-            <td>{{ tech }}</td>
-          </tr>
-        </table>
+        <div class="description">
+          <p v-for="section in project.description">{{ section }}</p>
+        </div>
+        <ProjectData v-if="project.tech" :data="project.tech" />
       </div>
     </div>
     <div class="navigation">
-      <RouterLink class="content prev" v-if="previous" :to="{ params: { project: previous.name } }">
+      <RouterLink class="prev" v-if="previous" :to="{ params: { project: previous.name } }">
         <IconComponent>
           <IconPrevious />
         </IconComponent>
         <h2> {{ previous.name }}</h2>
-        <!-- <img class="mini" :src="'/img/web/' + previous.img" alt="project picture"> -->
+        <img class="mini" :src="'/img/web/' + previous.img" alt="project picture">
       </RouterLink>
-      <RouterLink class="content next" v-if="next" :to="{ params: { project: next.name } }">
+      <RouterLink class="next" v-if="next" :to="{ params: { project: next.name } }">
+        <img class="mini" :src="'/img/web/' + next.img" alt="project picture">
+        <h2>{{ next.name }}</h2>
         <IconComponent>
           <IconNext />
         </IconComponent>
-        <h2>{{ next.name }}</h2>
-        <!-- <img class="mini" :src="'/img/web/' + next.img" alt="project picture"> -->
       </RouterLink>
     </div>
   </div>
@@ -78,6 +79,8 @@ watchEffect(() => {
 .content {
   display: flex;
   flex-flow: column;
+  width: 50rem;
+  align-self: flex-start;
 }
 
 .project {
@@ -93,7 +96,7 @@ watchEffect(() => {
 .title {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 .project-link {
@@ -105,12 +108,18 @@ watchEffect(() => {
 
 .description {
   padding: 1.5rem 0;
+  max-width: 40rem;
 }
 
 .navigation {
+  gap: 1rem;
   padding-top: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  a {
+    display: flex;
+  }
 }
 
 .prev {
@@ -126,7 +135,13 @@ watchEffect(() => {
 .next {
   background-color: #d5d5d5;
   padding: 1rem;
-  min-width: 80%;
+  // min-width: 80%;
+  justify-content: center;
+  transition: padding 0.3s;
+
+  &:hover {
+    padding: 1rem 2rem;
+  }
 }
 
 .info {
@@ -137,28 +152,18 @@ watchEffect(() => {
 .cover {
   width: 600px;
   width: 400px;
+  // width: 50rem;
   height: auto;
 }
 
 .mini {
   width: 100px;
   height: auto;
+  filter: grayscale(1);
 }
 
 h1 {
+  text-transform: capitalize;
   font-size: 2rem;
-}
-
-table,
-th,
-td {
-  border: 1px solid #ababab;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-th,
-td {
-  padding: 0.25rem 0.5rem;
 }
 </style>

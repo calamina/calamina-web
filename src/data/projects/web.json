@@ -8,11 +8,32 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Library application used to save and mark cultural works.",
+            "The app uses the wikipedia API to get data.",
+            "Offline for now because no server to stock the data :("
         ],
+        "tech": {
+            "tools": [
+                "vue",
+                "strapi"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "fonts": [
+                "apercu mono regular"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -24,11 +45,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "3D experiment showing rotating planets."
         ],
+        "tech": {
+            "tools": [
+                "threejs"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -40,11 +73,26 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Startpage with fake depth and 3D."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -56,11 +104,27 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Startpage with different categories.",
+            "It uses localStorage to save NSFW status and color theme."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -72,11 +136,26 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Pixel generator / drawing app with different customization options and presets."
         ],
+        "tech": {
+            "tools": [
+                "p5js"
+            ],
+            "languages": [
+                "html",
+                "css",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -88,11 +167,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "3D planet rotating, zooming and exploding depending on the scroll position."
         ],
+        "tech": {
+            "tools": [
+                "threejs"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -104,11 +195,26 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "One of many attemps at making a personnal website / portfolio."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -120,11 +226,27 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Another personnal website attempt, with a word pattern generator"
         ],
+        "tech": {
+            "tools": [
+                "vue",
+                "p5js"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "tabler"
+            ]
+        },
         "features": []
     },
     {
@@ -136,11 +258,26 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Project based on four animated movies with incredibly long production times."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "utf8"
+            ]
+        },
         "features": []
     },
     {
@@ -152,11 +289,19 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Pure CSS/HTML animation."
         ],
+        "tech": {
+            "languages": [
+                "html",
+                "scss"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -168,11 +313,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Startpage implementing a media list and a news view."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -184,11 +341,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Another startpage with shortcuts."
         ],
+        "tech": {
+            "languages": [
+                "html",
+                "scss",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ],
+            "icons": [
+                "???"
+            ]
+        },
         "features": []
     },
     {
@@ -200,11 +369,20 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Small gallery gathering looping gifs from animated movies."
         ],
+        "tech": {
+            "languages": [
+                "html",
+                "scss",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -212,15 +390,21 @@
         "name": "sorrow",
         "link": "/sorrow",
         "img": "sorrow.png",
-        "imgs": [
-            "img2.png",
-            "img3.png"
+        "imgs": [],
+        "description": [
+            "Stories about some famous animals whose lives were remarkable (sometimes not in a good way :')"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
-        ],
+        "tech": {
+            "languages": [
+                "html",
+                "scss",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -232,11 +416,20 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Website about the Biosphere2 project."
         ],
+        "tech": {
+            "languages": [
+                "html",
+                "scss",
+                "javascript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -248,11 +441,24 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Small 3D experiment with voxels and shading."
         ],
+        "tech": {
+            "tools": [
+                "threejs",
+                "magickaVoxel"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -264,11 +470,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Gallery of unusual and interesting words and concepts found on wikipedia."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     },
     {
@@ -280,11 +498,23 @@
             "img2.png",
             "img3.png"
         ],
-        "description": "hhehehehhheheheheh",
-        "tech": [
-            "vue",
-            "strapi"
+        "description": [
+            "Gallery of interesting colors and their stories."
         ],
+        "tech": {
+            "tools": [
+                "vue"
+            ],
+            "languages": [
+                "html",
+                "scss",
+                "typescript"
+            ],
+            "colors": [
+                "#lelele",
+                "#tetete"
+            ]
+        },
         "features": []
     }
 ]

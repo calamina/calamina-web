@@ -128,9 +128,12 @@ footer {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.sublink-enter-from,
-.sublink-leave-to {
+.sublink-enter-from {
   opacity: 0;
   transform: translateX(-0.25rem);
+}
+.sublink-leave-to {
+  opacity: 0;
+  transform: translateX(0.25rem);
 }
 </style>
