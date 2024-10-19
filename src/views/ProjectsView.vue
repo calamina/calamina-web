@@ -64,13 +64,13 @@ watch(loading, () => {
 
 a {
   display: block;
-  aspect-ratio: 1;
+  // aspect-ratio: 1;
 }
 
 img {
   display: block;
   width: 100%;
-  height: 100%;
+  // height: 100%;  
   // filter: grayscale(1);
   opacity: 0;
 }

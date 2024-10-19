@@ -5,8 +5,8 @@
         "link": "https://atlast.calamina.cafe",
         "img": "atlast.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "atlast-edit.png",
+            "atlast-search.png"
         ],
         "description": [
             "Library application used to save and mark cultural works.",
@@ -34,7 +34,13 @@
                 "tabler"
             ]
         },
-        "features": []
+        "features": [
+            "Authentication with JWT token",
+            "Custom notification & alert",
+            "Interface customization",
+            "Wikipedia API for search and data",
+            "User search and library compare"
+        ]
     },
     {
         "id": 2,
@@ -42,8 +48,7 @@
         "link": "/constellation",
         "img": "constellation.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "constellation-top.png"
         ],
         "description": [
             "3D experiment showing rotating planets."
@@ -62,7 +67,10 @@
                 "#tetete"
             ]
         },
-        "features": []
+        "features": [
+            "3D scene you can rotate",
+            "Random movements for each planet"
+        ]
     },
     {
         "id": 3,
@@ -70,8 +78,9 @@
         "link": "/jade",
         "img": "jade.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "jade-search.png",
+            "jade-links.png",
+            "jade-mobile.png"
         ],
         "description": [
             "Startpage with fake depth and 3D."
@@ -93,7 +102,11 @@
                 "tabler"
             ]
         },
-        "features": []
+        "features": [
+            "Random catchphrase generator",
+            "Animated layers mimicking 3D",
+            "Instant results on different search engines"
+        ]
     },
     {
         "id": 4,
@@ -101,8 +114,10 @@
         "link": "/netstart",
         "img": "netstart.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "netstart-bangs.png",
+            "netstart-themes.png",
+            "netstart-work.png",
+            "netstart-mobile.png"
         ],
         "description": [
             "Startpage with different categories.",
@@ -125,7 +140,12 @@
                 "tabler"
             ]
         },
-        "features": []
+        "features": [
+            "Search mimicking DuckDuckGo bangs, with instant results on several search engines",
+            "4 different themes, each available in light or dark",
+            "A 'nsfw' button, toggling an additional category and marked links",
+            "Themes and nsfw state are stored in local storage for persistance"
+        ]
     },
     {
         "id": 5,
@@ -133,8 +153,13 @@
         "link": "/pixilate",
         "img": "pixilate.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "pixilate-adn.png",
+            "pixilate-adnpretty.png",
+            "pixilate-large.png",
+            "pixilate-fillfall.png",
+            "pixilate-adn.png",
+            "pixilate-path.png",
+            "pixilate-draw.png"
         ],
         "description": [
             "Pixel generator / drawing app with different customization options and presets."
@@ -156,7 +181,12 @@
                 "tabler"
             ]
         },
-        "features": []
+        "features": [
+            "Many animated presets to choose from",
+            "Animated mode, and population mode for instant pixel generation",
+            "Drawing mode !",
+            "Many shape customization options"
+        ]
     },
     {
         "id": 6,
@@ -164,8 +194,8 @@
         "link": "/planet",
         "img": "planet.png",
         "imgs": [
-            "img2.png",
-            "img3.png"
+            "planet-exploding.png",
+            "planet-zooming.png"
         ],
         "description": [
             "3D planet rotating, zooming and exploding depending on the scroll position."
@@ -184,7 +214,10 @@
                 "#tetete"
             ]
         },
-        "features": []
+        "features": [
+            "Scroll interactions",
+            "Highlight color picker"
+        ]
     },
     {
         "id": 7,

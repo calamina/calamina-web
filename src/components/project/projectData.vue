@@ -8,6 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
+    <!-- <h2>Info</h2> -->
     <div class="category" v-for="category in Object.entries(data)">
         <p class="category-title">{{ category[0] }}</p>
         <div class="taglist">
@@ -17,6 +18,11 @@ const props = defineProps<{
 </template>
 
 <style lang="scss" scoped>
+h2 {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
 .category {
     display: flex;
     align-items: baseline;
@@ -54,15 +60,19 @@ const props = defineProps<{
 .tools {
     background-color: hsl(50, 50%, 77%)
 }
+
 .languages {
     background-color: hsl(144, 50%, 77%)
 }
+
 .colors {
     background-color: hsl(216, 50%, 77%)
 }
+
 .fonts {
     background-color: hsl(288, 50%, 77%)
 }
+
 .icons {
     background-color: hsl(2, 50%, 77%)
 }
