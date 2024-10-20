@@ -45,7 +45,7 @@ watch(loading, () => {
       <div v-else class="content">
         <!-- projects page # -->
         <div class="img-grid">
-          <RouterLink v-for="img in imgs" href="" :to="{ name:'project', params: { project: img.name } }">
+          <RouterLink v-for="img in imgs" href="" :to="{ name: 'project', params: { project: img.name } }">
             <img class="img" :src="img.image.src" alt=":(" />
           </RouterLink>
         </div>
@@ -82,7 +82,7 @@ span {
   font-size: 2rem;
 }
 
-.loader{
+.loader {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -93,6 +93,7 @@ span {
   0% {
     transform: rotate(0deg)
   }
+
   100% {
     transform: rotate(360deg)
   }
@@ -106,5 +107,12 @@ span {
 .imgLoad-enter-from,
 .imgLoad-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 1250px) {
+  .img-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-width: 100%;
+  }
 }
 </style>

@@ -59,7 +59,7 @@ watchEffect(() => {
         <h2>Features</h2>
         <p v-for="section in project.features">{{ section }}</p>
       </div>
-      <div class="gallerita" v-if="project.imgs" :class="{tata: project.imgs.length < 2}">
+      <div class="gallerita" v-if="project.imgs" :class="{ tata: project.imgs.length < 2 }">
         <div v-for="image in project.imgs">
           <img :src="'/img/web/' + project.name + '/' + image" alt=":(">
         </div>
@@ -123,7 +123,7 @@ watchEffect(() => {
   gap: 1rem;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  
+
   &.tata {
     grid-template-columns: 1fr;
   }
@@ -146,7 +146,7 @@ watchEffect(() => {
 .features {
   padding: 2.5rem 0 2rem;
 
-  h2{
+  h2 {
     font-size: 1.5rem;
     padding-bottom: 1rem;
   }
@@ -226,5 +226,15 @@ watchEffect(() => {
 h1 {
   text-transform: capitalize;
   font-size: 3rem;
+}
+
+@media (max-width: 1250px) {
+  .project {
+    width: 100%;
+  }
+
+  .mini {
+    width: 40px;
+  }
 }
 </style>

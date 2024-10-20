@@ -132,8 +132,18 @@ footer {
   opacity: 0;
   transform: translateX(-0.25rem);
 }
+
 .sublink-leave-to {
   opacity: 0;
   transform: translateX(0.25rem);
+}
+
+@media (max-width: 1250px) {
+  main {
+    padding: 0;
+  }
+  nav {
+    gap: 1.5rem;
+  }
 }
 </style>

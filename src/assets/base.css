@@ -51,3 +51,10 @@
   font-size: 17px;
   font-family: 'Apercu', monospace;
 }
+
+
+@media (max-width: 1250px) {
+  * {
+    font-size: 13px;
+  }
+}
