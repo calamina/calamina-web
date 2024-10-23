@@ -5,6 +5,19 @@ body {
     background-color: #dedede;
 }
 
+// html {
+//     scrollbar-gutter: stable;
+// }
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 #app {
     min-height: calc(100vh - 2rem);
     margin: 1rem;

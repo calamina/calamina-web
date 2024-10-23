@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, type Ref } from 'vue';
+import { ref, watch, type Ref } from 'vue';
 import { gsap } from "gsap";
-import router from '@/router';
 import web from '@/data/projects/web.json';
 import type { ProjectModel } from '@/models/project';
 
@@ -43,12 +42,22 @@ watch(loading, () => {
         <!-- <p class="loader">LOADING<span>⥁</span></p> -->
       </div>
       <div v-else class="content">
-        <!-- projects page # -->
-        <div class="img-grid">
-          <RouterLink v-for="img in imgs" href="" :to="{ name: 'project', params: { project: img.name } }">
-            <img class="img" :src="img.image.src" alt=":(" />
-          </RouterLink>
+        <div>
+          <h2>web projects</h2>
+          <div class="img-grid">
+            <RouterLink v-for="img in imgs" href="" :to="{ name: 'project', params: { project: img.name } }">
+              <img class="img" :src="img.image.src" alt=":(" loading="lazy" />
+            </RouterLink>
+          </div>
         </div>
+        <!-- <div>
+          <h2>phone projects</h2>
+          <div class="img-grid">
+            <RouterLink v-for="img in imgs" href="" :to="{ name: 'project', params: { project: img.name } }">
+              <img class="img" :src="img.image.src" alt=":(" loading="lazy" />
+            </RouterLink>
+          </div>
+        </div> -->
       </div>
     </transition>
   </div>
@@ -64,14 +73,11 @@ watch(loading, () => {
 
 a {
   display: block;
-  // aspect-ratio: 1;
 }
 
 img {
   display: block;
   width: 100%;
-  // height: 100%;  
-  // filter: grayscale(1);
   opacity: 0;
 }
 

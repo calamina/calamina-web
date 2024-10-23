@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ProjectModel } from '@/models/project';
-import { ref, watchEffect, type Ref } from 'vue';
+import { onMounted, ref, watchEffect, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import web from '@/data/projects/web.json'
 import IconComponent from '@/components/iconComponent.vue';
@@ -10,31 +10,119 @@ import IconPrevious from '@/components/icons/iconPrevious.vue';
 import { useMagicKeys } from '@vueuse/core'
 import router from '@/router';
 import ProjectData from '@/components/project/projectData.vue';
+import IconTouch from '@/components/icons/iconTouch.vue';
+import IconEye from '@/components/icons/iconEye.vue';
 
 const route = useRoute()
+const { ArrowRight, ArrowLeft, Escape } = useMagicKeys()
+
 const projects: Ref<ProjectModel[]> = ref(web);
-const { ArrowRight, ArrowLeft } = useMagicKeys()
-
 const project: Ref<ProjectModel> = ref(projects.value.find(project => project.name === route.params.project) ?? projects.value[0])
-
 const previous: ProjectModel | null = projects.value.find(res => res.id === (project.value.id - 1)) ?? null;
 const next: ProjectModel | null = projects.value.find(res => res.id === (project.value.id + 1)) ?? null;
 
+const images: HTMLImageElement[] = []
+const imgView: Ref<HTMLImageElement | null> = ref(null);
+const imgSwipeTransition: Ref<string> = ref('imgSwipeNext');
+
+onMounted(() => {
+  images.push(...Array.from(document.querySelectorAll('.img')) as HTMLImageElement[])
+})
+
 watchEffect(() => {
-  if (ArrowLeft.value)
+  if (ArrowLeft.value) {
+    if (imgView.value) {
+      prevImg()
+      return
+    }
     previous ?
       router.push({ params: { project: previous?.name } }) :
       router.push({ name: "projects" })
-  else if (ArrowRight.value) {
+  }
+  if (ArrowRight.value) {
+    if (imgView.value) {
+      nextImg()
+      return
+    }
     next ?
       router.push({ params: { project: next?.name } }) :
       router.push({ name: "projects" })
   }
+  else if (Escape.value && imgView.value) {
+    imgView.value = null
+  }
 })
+
+function nextImg() {
+  imgSwipeTransition.value = "imgSwipeNext"
+  if (imgView.value) {
+    imgView.value = images[images.indexOf(imgView.value) + 1] ?? images[0]
+  } else {
+    imgView.value = images[0]
+  }
+}
+
+function prevImg() {
+  imgSwipeTransition.value = "imgSwipePrev"
+  if (imgView.value) {
+    imgView.value = images[images.indexOf(imgView.value) - 1] ?? images[images.length - 1]
+  } else {
+    imgView.value = images[0]
+  }
+}
+
+watchEffect(() => document.documentElement.style.overflow = !imgView.value ? "visible" : "hidden")
+
+
+function focusImage(e: MouseEvent) {
+  imgView.value = e.target as HTMLImageElement
+  console.debug(imgView)
+}
 </script>
 
 <template>
   <div class="project" v-if="project">
+    <Teleport to="body">
+      <transition name="imgFocus">
+        <div v-if="imgView" class="overlay">
+          <div class="imageView">
+            <div class="options">
+              <p>[<IconComponent>
+                  <IconEye />
+                </IconComponent>Fullscreen mode]</p>
+              <p>[ {{ images.indexOf(imgView) + 1 }} / {{ images.length }} ]</p>
+              <div>
+                <p>[<IconComponent>
+                    <IconTouch />
+                  </IconComponent>or Escape to exit]</p>
+                <p>[<IconComponent>
+                    <IconPrevious />
+                  </IconComponent>
+                  <IconComponent>
+                    <IconNext />
+                  </IconComponent> to navigate]
+                </p>
+              </div>
+            </div>
+            <transition :name="imgSwipeTransition" mode="out-in">
+              <img @click="imgView = null" :src="imgView.src" :alt="imgView.alt" :key="imgView.src">
+            </transition>
+            <div class="options">
+              <button @click="prevImg()">[
+                <IconComponent>
+                  <IconPrevious />
+                </IconComponent>
+                previous]
+              </button>
+              <button @click="nextImg()">[next<IconComponent>
+                  <IconNext />
+                </IconComponent> ]
+              </button>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </Teleport>
     <div class="info">
       <div class="title">
         <h1>
@@ -54,14 +142,16 @@ watchEffect(() => {
       <ProjectData v-if="project.tech" :data="project.tech" />
     </div>
     <div class="gallery">
-      <img class="cover" :src="'/img/web/' + project.img" alt="project picture">
-      <div v-if="project.features?.length" class="features">
+      <img @click="(event) => focusImage(event)" class="cover img" :src="'/img/web/' + project.img"
+        alt="project picture">
+      <!-- <div v-if="project.features?.length" class="features">
         <h2>Features</h2>
         <p v-for="section in project.features">{{ section }}</p>
-      </div>
+      </div> -->
       <div class="gallerita" v-if="project.imgs" :class="{ tata: project.imgs.length < 2 }">
         <div v-for="image in project.imgs">
-          <img :src="'/img/web/' + project.name + '/' + image" alt=":(">
+          <img @click="(event) => focusImage(event)" class="img" :src="'/img/web/' + project.name + '/' + image"
+            alt=":(">
         </div>
       </div>
     </div>
@@ -88,7 +178,6 @@ watchEffect(() => {
 .project {
   display: flex;
   flex-flow: column;
-  position: relative;
   padding: 2rem 0;
   width: calc(100vw - 8rem);
   gap: 3rem;
@@ -126,6 +215,10 @@ watchEffect(() => {
 
   &.tata {
     grid-template-columns: 1fr;
+
+    img {
+      max-height: none;
+    }
   }
 
   div {
@@ -214,8 +307,6 @@ watchEffect(() => {
   }
 }
 
-
-
 .mini {
   width: 150px;
   height: auto;
@@ -227,6 +318,111 @@ h1 {
   text-transform: capitalize;
   font-size: 3rem;
 }
+
+.img {
+  cursor: url("/public/EyeIn.svg") 16 16, pointer;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  background-color: #c5c5c5;
+}
+
+.imageView {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dedede;
+  gap: 0.5rem;
+  padding: 1rem 0;
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    width: calc(100% - 2rem);
+
+    p {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding-top: 0.5rem;
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+  }
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    cursor: url("/public/EyeOff.svg") 16 16, pointer;
+  }
+}
+
+.imgFocus-enter-active,
+.imgFocus-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.imgFocus-enter-from {
+  // transform: translateY(-2rem);
+  opacity: 0;
+}
+
+.imgFocus-leave-to {
+  // transform: translateY(2rem);
+  opacity: 0;
+}
+
+.imgSwipeNext-enter-active,
+.imgSwipeNext-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.imgSwipeNext-enter-from {
+  transform: translateX(-5rem);
+  opacity: 0;
+}
+
+.imgSwipeNext-leave-to {
+  transform: translateX(5rem);
+  opacity: 0;
+}
+
+.imgSwipePrev-enter-active,
+.imgSwipePrev-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.imgSwipePrev-enter-from {
+  transform: translateX(5rem);
+  opacity: 0;
+}
+
+.imgSwipePrev-leave-to {
+  transform: translateX(-5rem);
+  opacity: 0;
+}
+
 
 @media (max-width: 1250px) {
   .project {

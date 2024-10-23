@@ -17,13 +17,30 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('../views/ProjectsView.vue')
+      component: () => import('../views/ProjectWrapperView.vue'),
+      children: [
+        {
+          path: "",
+          name: "projects",
+          component: () => import('../views/ProjectsView.vue'),
+        },
+        {
+          path: ":project",
+          name: "project",
+          component: () => import('../views/ProjectView.vue'),
+        }
+      ]
     },
-    {
-      path: '/projects/:project',
-      name: 'project',
-      component: () => import('../views/ProjectView.vue')
-    },
+    // {
+    //   path: '/projects',
+    //   name: 'projects',
+    //   component: () => import('../views/ProjectsView.vue')
+    // },
+    // {
+    //   path: '/projects/:project',
+    //   name: 'project',
+    //   component: () => import('../views/ProjectView.vue')
+    // },
     // TODO :: 404
     // {
     //   path: '/:pathMatch(.*)*',
