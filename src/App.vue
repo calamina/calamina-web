@@ -55,9 +55,9 @@ watch(
         <RouterLink to="/projects">projects</RouterLink>
         <transition name="sublink" mode="out-in">
           <div class="subroute" v-if="isProjectRoute" :key="project">
-            <p>~</p>
-            <!-- <p>:</p> -->
-            <!-- <p>/</p> -->
+            <!-- <p>~</p> -->
+            <!-- <p class="subtype">[{{ $route.params.type }}]</p> -->
+            <p>:</p>
             <p class="sublink">{{ $route.params.project }}</p>
           </div>
         </transition>
@@ -97,7 +97,7 @@ main {
   padding: 1rem;
   display: flex;
   height: 100%;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   overflow-y: hidden;
 }
@@ -115,6 +115,10 @@ footer {
 .subroute {
   display: flex;
   gap: 0.5rem;
+}
+
+.subtype {
+  color: #a5a5a5;
 }
 
 .sublink {
@@ -142,6 +146,7 @@ footer {
   main {
     padding: 0;
   }
+
   nav {
     gap: 1.5rem;
   }

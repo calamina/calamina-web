@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps({
-  small: Boolean,
+const { small } = defineProps({
+    small: Boolean,
 })
 </script>
 
 <template>
-<div :class="{smallIcon: small}">
-    <slot />
-</div>
+    <div :class="{ smallIcon: small }">
+        <slot />
+    </div>
 </template>
 
 <style lang="scss" scoped>

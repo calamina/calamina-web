@@ -1,5 +1,6 @@
 @import './base.css';
 @import './reset.css';
+@import './transitions.scss';
 
 body {
     background-color: #dedede;
@@ -36,4 +37,18 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
+
+// .flex-start {
+//     align-items: start !important;
+//     justify-content: start !important;
+//     background-color: red !important;
+//   }
+
+.center {
+    height: 80vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 }
